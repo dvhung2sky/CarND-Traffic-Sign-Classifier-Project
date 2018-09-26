@@ -45,11 +45,11 @@ You're reading it! and here is a link to my [project code](https://github.com/ud
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
 
-* The size of training set is ?
-* The size of the validation set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+* The size of training set is 34799
+* The size of the validation set is 4410
+* The size of test set is 12630
+* The shape of a traffic sign image is 32x32x3
+* The number of unique classes/labels in the data set is 43
 
 #### 2. Include an exploratory visualization of the dataset.
 
@@ -86,12 +86,19 @@ My final model consisted of the following layers:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
+| Input         		| 32x32x6 RGB image    							| 
+| Padding         		| 36x36x6 RGB image    							| 
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 32x32x6 	|
 | RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
+| Max pooling	      	| 2x2 stride,  outputs 16x16x16 				|
+| Convolution 5x5     	| 1x1 stride, valid padding, outputs 12x12x16 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 6x6x16 				|
+| Fully connected		| Flatten 576, outputs 120        									|
+| RELU					|												|
+| Fully connected		| outputs 84        									|
+| RELU					|												|
+| Fully connected		| outputs 43        									|
 | Softmax				| etc.        									|
 |						|												|
 |						|												|
